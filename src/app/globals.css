@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+:root {
+  --ink-950: #12131a;
+  --ink-900: #1a1c26;
+  --ink-800: #262939;
+  --ink-700: #363a4d;
+  --paper: #ece8de;
+  --paper-dim: #a8a597;
+  --amber: #e3a542;
+  --amber-dim: #8a6a34;
+  --teal: #4fae8b;
+  --clay: #d1573f;
+
+  --font-serif: ui-serif, Charter, "Iowan Old Style", "Georgia", "Cambria",
+    serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, system-ui,
+    sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas,
+    monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: var(--ink-950);
+  color: var(--paper);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100dvh;
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+::selection {
+  background: var(--amber);
+  color: var(--ink-950);
+}
+
+:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
