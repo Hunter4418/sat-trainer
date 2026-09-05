@@ -38,10 +38,20 @@ function buildListBody(subject: Subject, domains: string[]) {
   };
 }
 
+const QBANK_ORIGIN = "https://satsuitequestionbank.collegeboard.org";
+
 async function cbFetch(path: string, body: unknown) {
   const res = await fetch(`${BASE_URL}/${path}`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json, text/plain, */*",
+      Origin: QBANK_ORIGIN,
+      Referer: `${QBANK_ORIGIN}/`,
+      "User-Agent":
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 " +
+        "(KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+    },
     body: JSON.stringify(body),
     cache: "no-store",
   });
